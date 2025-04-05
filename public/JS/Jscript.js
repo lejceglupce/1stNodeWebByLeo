@@ -29,6 +29,16 @@ for (var i = 0; i< siteRecentPosts.length; i++){
         document.querySelector('#MainPostContent').innerHTML = novContentNaMain.replace(/\r?\n/g, "<br>");
         document.querySelector('#MainPostFooter').innerHTML = novFooterNaMain;
     })
+    siteRecentPosts[i].addEventListener("touchend", function(){
+        var novNaslovNaMain = this.querySelector('#RecentPostNaslov').innerHTML;
+        var novContentNaMain = this.querySelector('.RecentPostContent').getAttribute('data-unsliced');
+        var novFooterNaMain = this.querySelector('#RecentPostByKoj').innerHTML;
+
+
+        document.querySelector('#MainPostTitle').innerHTML = novNaslovNaMain;
+        document.querySelector('#MainPostContent').innerHTML = novContentNaMain.replace(/\r?\n/g, "<br>");
+        document.querySelector('#MainPostFooter').innerHTML = novFooterNaMain;
+    })
 }
 
 var animiraniDugminja = document.querySelectorAll('.dugmeZaPosts');
