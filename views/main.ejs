@@ -1,0 +1,70 @@
+<%- include("partials/header.ejs") %>
+<main class="main-container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 levo-container">
+                <nav>
+                        <ul>
+                          <li><a href="#">This is just a sidebar</a></li>
+                          <li><a href="#">With no purpose yet</a></li>
+                          <li><a href="#">For appereanace only</a></li>
+                          <li><a href="#">This is just a sidebar</a></li>
+                          <li><a href="#">With no purpose yet</a></li>
+                          <li><a href="#">For appereanace only</a></li>
+                          <li><a href="#">This is just a sidebar</a></li>
+                          <li><a href="#">With no purpose yet</a></li>
+                          <li><a href="#">For appereanace only</a></li>
+                        </ul>
+                </nav>
+            </div>
+            <!-- Left Container (Larger) -->
+            <div class="col-lg-7 col-sm-12 middle-container">
+                <% if (locals.sitePostoj && locals.sitePostoj.length >= 1){ %>
+                            <div class="celMainPost">
+                                <div class="MainPostContent">
+                                    <h1 id="MainPostTitle"><%= locals.sitePostoj[0].naslovPost %></h1>
+                                        <p id="MainPostContent"><%- locals.sitePostoj[0].kontentPost.replace(/\r?\n/g, '<br>') %></p>
+                                </div>
+                                <div class="MainPostFooter">
+                                    <p class="MainPostFooter">Postirano od <%= locals.sitePostoj[0].imePost %> na 
+                                        <%= locals.sitePostoj[0].datumPost %> vo 
+                                    <%= locals.sitePostoj[0].vremePost %></p>
+                                    </div>
+                            </Div>
+                <% } else { %>
+                    <h1>Nemat postoj da se prikazet</h1>
+                <% } %>
+            </div>
+
+      <!-- Right Container (Smaller) -->
+      <div class=" col-lg-3 col-sm-12 right-container">
+                <div class="naslovArea"><h2 id="RecentPostTitle">Posledne postove</h2></div>
+                <div class="postsArea">
+                        <% if (locals.sitePostoj && locals.sitePostoj.length >= 1){ %>
+                            <% locals.sitePostoj.forEach(post =>{ %>
+                                    <div class="recentPostBlocks">
+                                        <div class="mainContentOfSidePost">
+                                            <h3 class="RecentPostNaslov"><%= post.naslovPost %></h3>
+                                            <% if (post.kontentPost.length>200) { %>
+                                                <p class="RecentPostContent" data-unsliced="<%= post.kontentPost %>">
+                                                    <%= post.kontentPost.slice(0,200) + "..." %></p>
+                                                 <% } else { %>
+                                                <p class="RecentPostContent" data-unsliced="<%= post.kontentPost %>">
+                                                    <%= post.kontentPost %></p>
+                                                <% } %>
+                                        </div>
+                                        <div class="footerZaRecent">
+                                            <p id="RecentPostByKoj">Postirano od <%= post.imePost %> na 
+                                             <%= post.datumPost %> vo 
+                                            <%= post.vremePost %> </p>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                                <% }else { %>
+                                <h3>Nemat postoj ushte.</h3>
+                                 <% } %>
+        </div>
+        
+    </div>
+</main>
+    <%- include("partials/footer.ejs") %>

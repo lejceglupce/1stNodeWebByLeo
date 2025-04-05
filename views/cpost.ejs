@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+<main class="main-container">
+  <form class="mx-auto col-5" action="/submit" method="Post">
+    <div class="mb-3">
+      <label for="naslov" class="form-label">Vnesi Naslov:</label>
+      <input type="text" maxlength="30" class="form-control" name="naslov" required>
+    </div>
+    <div class="mb-3">
+      <label for="txt" class="form-label">Text za post:</label>
+      <textarea class="form-control" maxlength="1000" style="height:350px; resize:none" id="txt" name="txt" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="ime" class="form-label">Vnesi ime:</label>
+      <input type="text" maxlength="30" class="form-control" name="ime" required>
+    </div>
+        <% if(locals.successMsg) { %>
+            <p id="ushteKolku" style="float:right;">Imas us 1000 karakteri ak me postovas</p>
+            <p id="uspesnoSubmitted" style="float:right; color:rgb(0, 121, 0); clear:both"><%= successMsg %></p>
+        <% } else {%>
+          <p id="ushteKolku" style="float:right;">Imas us 1000 karakteri ak me postovas</p>
+          <% } %>
+
+    <button type="submit" class="btn btn-primary">Post</button>
+  </form>
+ 
+</main>
+<%- include("partials/footer.ejs") %>

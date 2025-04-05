@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+
+<main class="main-container searchcontainer">
+
+    <% if(locals.siteBaraniPostoj && locals.siteBaraniPostoj.length >= 1) { %>
+        <h1 id="SearchTitle">Ovde se site postoj od <%= locals.siteBaraniPostoj[0].imePost %></h1>
+        <% locals.siteBaraniPostoj.forEach(post =>{ %>
+            <div class="SearchBlock">
+            <h3><%= post.naslovPost %></h3>
+            <p><%- post.kontentPost.replace(/\r?\n/g, '<br>') %></p>
+            <p class="MainPostFooter">Kreirano od <%= post.imePost %> na <%= post.datumPost %> vo <%= post.vremePost %></p>
+            </div>
+        <% })} else { %>
+            <h3><%= locals.defoPorache %></h3>
+        <% } %>
+</main>
+    <%- include("partials/footer.ejs") %>
