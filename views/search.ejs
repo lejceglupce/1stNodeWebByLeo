@@ -8,7 +8,7 @@
             <div class="SearchBlock">
             <h3><%= post.naslovPost %></h3>
             <p><%- post.kontentPost.replace(/\r?\n/g, '<br>') %></p>
-            <p class="MainPostFooter">Kreirano od <%= post.imePost %> na <%= post.datumPost %> vo <%= post.vremePost %></p>
+            <p class="SearchPostFooter">Kreirano od <%= post.imePost %> na <%= post.datumPost %> vo <%= post.vremePost %></p>
             </div>
         <% })} else { %>
             <h3><%= locals.defoPorache %></h3>

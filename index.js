@@ -28,7 +28,6 @@ app.get("/CreatePost", (req,res) =>{
 
 app.get("/", (req,res) =>{
     res.render("main.ejs");
-    console.log("Website is up");
 }) // mainpage load
 
 
@@ -71,13 +70,8 @@ app.post("/Submit", (req,res) =>{
              // gi primat site inputi, gi redit vo objektot novPost pa vo zavisno ako site inputi se popolneti go redit objektot vo nizata
         // i vrakjat soodvetna poraka  // da mozam da ja koristasm vo EJS bez undefined
 
-    res.render("cpost.ejs", {
-        ErrorMsg: res.locals.ErrorMsg,
-        VnesenoIme: res.locals.VnesenoIme,
-        VnesenTxt: res.locals.VnesenTxt,
-        VnesenNaslov: res.locals.VnesenNaslov,
-    }) // pomagat da mozam da koristam data vo EJS
-})
+    res.render("cpost.ejs"); // pomagat da mozam da koristam data vo EJS
+});
 
 app.get("/Home", (req,res) =>{
     var sortedPostoj = postoj.sort((a,b) => {
@@ -100,17 +94,16 @@ app.post("/Search", (req,res)=>{
             baraniPostoj.push(postoj[i]);
         }
     }
-    console.log(baraniPostoj);
     res.render("search.ejs", { 
         siteBaraniPostoj: baraniPostoj,
         defoPorache: "No results found"
     });
-})
+});
 
 
 
 app.listen(port, ()=>{
     console.log(`Successfully running a server on ${port} port`);
-})
+});
 
 

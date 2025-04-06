@@ -1,39 +1,69 @@
-.form-control {
-    font-style:italic;
-}
 
+
+/* OPSHTI ELEMENTI */
 
 body 
     {
         background: linear-gradient(to right, white, #c6e8f3); /* white to light blue */
     }
 
-#RecentPostTitle{
+    .form-control {
+        font-style:italic;
+    }
+    .container-fluid {
+        width: 80%;
+       
+    }
+    
+    .main-container {
+        margin: 0 20px;
+    }
+    footer > p {
+        margin: 0;
+    }
+    footer {
+        clear:both;
+        padding: 20px;
+        margin-top:50px;
+    }
+    br{
+        margin: 0;
+    }
+    
+/* ZA MAIN EJS STRANA */
+#RecentPostTitle{  /* naslov na desen block ona najgore sho e */
     text-align: center;
     margin-top: 10px;
     padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-.container-fluid {
-    width: 80%;
-}
 
-.main-container {
-    margin: 0 20px;
-}
-
-.middle-container{
+.middle-container{ /* na middle container desna granica kolku da se delit so recent posts block */
     border-right: 1px solid rgba(0, 0, 0, 0.075);
+    height: auto;
 }
 
 
-@media screen and (max-width: 960px){
+@media screen and (max-width: 960px){ /* da ja nemat taja linijata na telefon */
     .middle-container{
         border-right: none;
     }
+    .formaPost{
+        width: 80%;
+    }
 }
 
-.recentPostBlocks {
+/* SEGA ZA DESNO BLOKOJTE OD RECENT POSTS */
+
+.postsArea {  /* CELIOT DEL BEZ NASLOVOT  NA BLOKOT NA PR RECENT POSTS HERE */
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.recentPostBlocks { /* CSS za site blokoj od postoj so ke se kreiret */
     display:flex;
     flex-direction: column;
     background-color:white;
@@ -42,33 +72,27 @@ body
     max-height: auto;
     width: 100%;
     padding: 10px;
-    overflow-wrap: break-word;  /* Ensures long words/wide content wraps */
+    overflow-wrap: break-word; 
     word-break: break-word;
     box-sizing: border-box;
     cursor: pointer;
 }
 
-.mainContentOfSidePost
-{
-    flex-grow: 1;
-}
-.mainContentOfSidePost > h3 {
+
+.RecentPostNaslov {
     margin-bottom: 15px;
 }
-.mainContentOfSidePost > p {
+.RecentPostContent {
     margin-bottom: 15px;
 }
 
-#RecentPostTitle{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+.RecentPostByKoj {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0;
 }
 
-.postsArea {
-    max-height: 1000px;
-    overflow-y: auto;
-}
+/* CSS za main post displayed */
 
 .MainPostFooter {
     font-size: 0.9rem;
@@ -77,50 +101,25 @@ body
     float: right;
 }
 
-.MainPostContent > h1, p {
+.MainPostTitle, .MainPostContent, .MainPostFooter{
     margin-bottom: 50px;
     overflow-wrap: break-word;
 }
-.MainPostContent > h1 {
+.MainPostTitle {
     text-align: center;
 }
 
-.footerZaRecent {
-    font-size: 0.8rem;
-    color: #555;
+.MainPostContent{
+    margin-top: 0;
 }
 
-.footerZaRecent > p {
-    margin: 0;
-}
-
-
-footer {
-    clear:both;
-    padding: 20px;
-    margin-top:50px;
-}
-
-#ushteKolku {
+/* brojach na chars vo cpost.ejs */
+#ushteKolku {       
     margin-bottom: 5px;
 }
-footer > p {
-    margin: 0;
-}
 
-#buttonsZaPost{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    gap: 30px;
-}
-#CreateAcc {
-        text-decoration: none;  /* Removes the underline */
-        color: inherit;         /* Inherits the text color from the parent element */
-        font-weight: normal;    /* Resets the bold font weight */
-}
 
+/* CSS ZA SEARCH STRANANA */
 .SearchBlock {
     border-bottom: 1px solid rgba(128, 128, 128, 0.314);
     margin-bottom: 10px;
@@ -141,26 +140,11 @@ footer > p {
     margin-bottom: 50px;
 }
 
-.levo-container {
-    display: flex;
-    justify-content: baseline;
-    
-}
-nav > ul {
-    list-style-type: none;
-}
-nav > ul > li > a {
-    all: unset;
-    cursor: pointer;
+
+.SearchPostFooter {
+    font-size: 0.9rem;
+    color: rgb(93, 93, 93);
+    clear: both;
+    float: right;
 }
 
-nav > ul > li {
-    margin: 15px 0;
-    background-color: #0d6efd;
-    color:white;
-    padding: 10px;
-    border-radius: 5px;
-}
-nav > ul > li:hover {
-    color:black;
-}
