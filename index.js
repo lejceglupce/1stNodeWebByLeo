@@ -44,6 +44,7 @@ app.post("/Submit", (req,res) =>{
     
     var vreme = `${saati < 10 ? "0" + saati : saati}:${minuti < 10 ? "0" + minuti : minuti}:${sekundi < 10 ? "0" + sekundi : sekundi}`;
     var datum = `${mesec < 10 ? "0" + mesec : mesec}/${den < 10 ? "0" + den : den}/${godina}`;
+    var vremePrikaz = `${saati < 10 ? "0" + saati : saati}:${minuti < 10 ? "0" + minuti : minuti}`;
 
    var VnesenNaslov = req.body.naslov;
    var VnesenoIme = req.body.ime;
@@ -64,6 +65,7 @@ app.post("/Submit", (req,res) =>{
                     kontentPost: req.body.txt,
                     vremePost: vreme,
                     datumPost: datum,
+                    vremeZaDisplay: vremePrikaz
                 }
                 postoj.push(novPost);
                 res.locals.successMsg = "Uspesno submitovano ak me potsovas";
